@@ -1,0 +1,25 @@
+id: subdomain-takeover-check
+info:
+  name: Subdomain Takeover Detection
+  author: YourName
+  severity: high
+  description: Identifies possible subdomain takeovers by checking error responses from cloud providers.
+  tags: subdomain,takeover
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "There is no such app"  # Heroku
+          - "NoSuchBucket"  # AWS S3
+          - "Domain is available for registration"  # Freenom
+          - "404 Not Found"  # Generic response
+        condition: or
+      - type: status
+        status:
+          - 404
+          - 403
