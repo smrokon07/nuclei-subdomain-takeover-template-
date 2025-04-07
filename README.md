@@ -1,2 +1,11 @@
-# nuclei-subdomain-takeover-template-
-🚀 **Subdomain Takeover Detection with Nuclei**   Detect vulnerable subdomains fast! Scan AWS, Heroku, and more for takeover risks with this lightweight, customizable template. Run:   **`nuclei -t subdomain-takeover-check.yaml -u target.com`**   🔍 Improve accuracy—contribute today!   Let me know if you'd like further refinements! 🚀
+# Subdomain Takeover Detection Template
+
+## Overview
+This repository provides a `nuclei` YAML template designed for identifying subdomains vulnerable to takeover. It scans for specific error responses that indicate abandoned or misconfigured services.
+
+## Installation & Usage
+1. Install `nuclei` if you haven't already:
+   ```sh
+   git clone https://github.com/projectdiscovery/nuclei.git
+   cd nuclei
+   go build
